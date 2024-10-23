@@ -1,0 +1,10 @@
+apiVersion: compute.example.com/v1alpha1
+kind: staging-aks
+metadata:
+  name: aks-test-001
+spec: 
+  clustername: cluster1
+  teamname: team01
+  location: EU
+  repourl: https://github.com/danielsollondon/teaminfra/
+  repopath: infra/shared/k8s-cluster-config/sh01-wus2-01
