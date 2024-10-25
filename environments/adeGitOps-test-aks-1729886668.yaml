@@ -4,3 +4,22 @@ metadata:
   name: testaks001
   labels:
     name: team01
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-config01
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/danielsollondon/projects1
+    targetRevision: HEAD
+    path: ./environments
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cluster-config
+  syncPolicy:
+    automated: {}
